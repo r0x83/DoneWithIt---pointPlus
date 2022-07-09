@@ -7,7 +7,7 @@ import {Card} from 'react-native-elements';
 const Icon = ({ icon, item, background }) => (
     <FontAwesome
         name={icon}
-        size={40}
+        size={30}
         color={
             item.iconColor || (!item.background || !background ? '#3498db' : '#fff')
         }
@@ -19,34 +19,39 @@ const Icon = ({ icon, item, background }) => (
 const data = [
     {   
         name: 'Assign Points',
-        background: '#0b51bf',
-        icon: (item, background) => Icon({ icon: 'certificate', item, background }),
+        background:'#3173de',
+        icon: (item, background) => Icon({ icon: 'award-simple', item, background }),
         iconColor: 'white',
-        rippleColor: '#000',
+        rippleColor: 'gold',
+        
     },
     {
         name: 'Resolve Tickets',
-        background: '#0b51bf',
+        background: '#3173de',
         icon: (item, background) => Icon({ icon: 'check', item, background }),
         styleIcon: { color: 'white' },
+        borderRadius:'50',
     },
     {
         name: 'Student Performance Review',
-        background: '#0b51bf',
+        background: '#3173de',
         icon: (item, background) => Icon({ icon: 'star', item, background }),
+        styleIcon: { color: 'gold' },
+    
     },
     {
         name: 'Sort and Filter Certificates',
-        background: '#0b51bf',
+        background: '#3173de',
         icon: (item, background) => Icon({ icon: 'filter', item, background }),
         styleName: { color: 'white', fontWeight: 'bold' },
+       borderRadius:'3',
     },
    
 ];
 
     
 
-const DashboardScreen =()=> {
+const TeacherDashboardScreen =()=> {
     const card = ({ name }) => console.log('Card: ' + name);
    
     return (
@@ -54,17 +59,14 @@ const DashboardScreen =()=> {
         <View style={styles.container}>
              
 
-            <View style={{marginTop:80}}>
+            <View style={{marginTop:30}}>
             <Card >
  
   <Card.Title style={{marginLeft:-180}}>Welcome!First Name</Card.Title>
-  <Card.Image style={{height:70,width:40,marginLeft:300,marginTop:5,marginBottom:-30,position:'relative'}}source={require('../assets/user.png')} />
+  <Card.Image style={{height:70,width:70,marginLeft:280}}source={require('../assets/user.png')} />
   
   
-  <Button
-    icon={<Icon name='check' color='red' />}
-    Style={{borderRadius: 0,marginRight:50}}
-    title='VIEW ' />
+  
 </Card></View>
             
             <Dashboard style={{marginTop:50}}
@@ -78,7 +80,7 @@ const DashboardScreen =()=> {
     );
 }
 
-export default DashboardScreen;
+export default TeacherDashboardScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,

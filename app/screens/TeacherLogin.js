@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
  
-const LoginScreen = ({navigation})=> {
+const TeacherLogin = ({navigation})=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -53,7 +53,7 @@ const LoginScreen = ({navigation})=> {
         <Text style={styles.forgot_button}>                            Forgot Password?</Text>
       </TouchableOpacity>
         
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('StudentDashboard')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('TeacherDashboardScreen')}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
@@ -76,7 +76,7 @@ const LoginScreen = ({navigation})=> {
     </View>
   );
 }
- export default LoginScreen;
+ export default TeacherLogin;
  const styles = StyleSheet.create({
   container: {
     flex: 1,

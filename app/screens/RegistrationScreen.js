@@ -1,5 +1,6 @@
 
 import React from 'react';
+
 import {
   View,
   Text,
@@ -22,24 +23,25 @@ const RegistrationScreen = () => {
   return (
     
   <SafeAreaView style={styles.container}>
+    
     <View>
-<Image source={require('../assets/add-user.png')} style={{height:150,width:150,marginTop:-80,marginBottom:30,marginLeft:70}}/>
+<Image source={require('../assets/add-user.png')} style={{height:80,width:80,marginTop:-80,marginBottom:40,marginLeft:90}}/>
     </View>
-  <Text style={{fontSize:24,color:'black',paddingBottom:10,marginBottom:80,borderBottomColor:'purple',borderBottomWidth:1,}}>REGISTRATION</Text>
+  <Text style={{fontSize:25,color:'#000080',paddingBottom:10,marginBottom:80,borderBottomColor:'#3173de',borderBottomWidth:1,}}>REGISTRATION</Text>
   <Text style={{fontWeight:'bold',marginTop:-30}}>Name: </Text>
-  <View style={{flexDirection:'column',borderRadius:15,borderColor:'purple',borderWidth:2,height:40,}}>
+  <View style={{flexDirection:'column',borderRadius:15,borderColor:'#3173de',borderWidth:2,height:40,}}>
     
   <TextInput style={styles.textinput} placeholder="Enter your Name" /></View>
   <Text style={{fontWeight:'bold',marginTop:20}}>Class: </Text>
- <View style={{flexDirection:'column',borderRadius:15,borderColor:'purple',borderWidth:2,height:40,}}>
+ <View style={{flexDirection:'column',borderRadius:15,borderColor:'#3173de',borderWidth:2,height:40,}}>
     
   <TextInput style={styles.textinput} placeholder="Enter your Class" /></View>
   <Text style={{fontWeight:'bold',marginTop:20}}>Email: </Text>
-  <View style={{flexDirection:'column',borderRadius:15,borderColor:'purple',borderWidth:2,height:40,}}>
+  <View style={{flexDirection:'column',borderRadius:15,borderColor:'#3173de',borderWidth:2,height:40,}}>
    
   <TextInput style={styles.textinput} placeholder="Enter your Email" /></View>
   <Text style={{fontWeight:'bold',marginTop:20}}>Password: </Text>
-  <View style={{flexDirection:'column',borderRadius:15,borderColor:'purple',borderWidth:2,height:40}}>
+  <View style={{flexDirection:'column',borderRadius:15,borderColor:'#3173de',borderWidth:2,height:40}}>
     
   <TextInput style={styles.textinput} placeholder="Enter your Password" secureTextEntry={true}/></View>
   <TouchableOpacity style={styles.button}>
@@ -59,7 +61,7 @@ paddingRight:60,
 paddingTop:Platform.OS==="android"?20:0,
 alignSelf:'stretch',
 borderRadius:15,
-borderColor:'black',
+borderColor:'#3173de',
 },
 textinput:{
   alignSelf: 'stretch',
