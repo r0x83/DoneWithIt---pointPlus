@@ -10,9 +10,9 @@ import TeacherDashboardScreen from './app/screens/TeacherDashboardScreen';
 import TeacherLogin from './app/screens/TeacherLogin';
 function HomeScreen({ navigation }) {
   return (
-    <View >
+    <View  style={{backgroundColor:'white',flex:1}}>
         
-      <Text style={{fontSize:36,marginTop:100,marginLeft:100}}>Point Plus+</Text>
+      <Text style={{fontSize:36,marginTop:150,marginLeft:100,color:'#000080'}}>Point Plus+</Text>
       <View style={{flexDirection:'row',marginTop:300,marginLeft:50}}><Button style={{marginLeft:100}}
         title="Login as Teacher"
         onPress={() => navigation.navigate('TeacherLogin')}

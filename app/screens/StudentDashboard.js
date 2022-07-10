@@ -1,59 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet ,Button,Platform} from 'react-native';
+import { Text, View, StyleSheet ,Button,Platform,TouchableOpacity} from 'react-native';
 import Dashboard from 'react-native-dashboard';
 import { FontAwesome } from 'react-native-vector-icons';
-import {Card} from 'react-native-elements';
-
-const Icon = ({ icon, item, background }) => (
-    <FontAwesome
-        name={icon}
-        size={30}
-        color={
-            item.iconColor || (!item.background || !background ? '#3498db' : '#fff')
-        }
-        style={item.styleIcon}
-    />
-);
-
-
-const data = [
-    {   
-        name: 'Upload Certificate',
-        background:'#3173de',
-        icon: (item, background) => Icon({ icon: 'upload', item, background }),
-        iconColor: 'white',
-        rippleColor: 'gold',
-        
-    },
-    {
-        name: 'View Certificates',
-        background: '#3173de',
-        icon: (item, background) => Icon({ icon: 'list', item, background }),
-        styleIcon: { color: 'white' },
-        borderRadius:'50',
-    },
-    {
-        name: 'Raise Ticket',
-        background: '#3173de',
-        icon: (item, background) => Icon({ icon: 'hand', item, background }),
-       
-    
-    },
-    {
-        name: 'View Activity Points',
-        background: '#3173de',
-        icon: (item, background) => Icon({ icon: 'trophy', item, background }),
-        styleName: { color: 'white', fontWeight: 'bold' },
-       borderRadius:'3',
-    },
-   
-];
-
-    
+import {Card,Icon} from 'react-native-elements';
+ 
 
 const StudentDashboard =()=> {
-    const card = ({ name }) => console.log('Card: ' + name);
-   
+    
     return (
        
         <View style={styles.container}>
@@ -67,15 +20,25 @@ const StudentDashboard =()=> {
   </View>
   
  
-</Card></View>
-            
-            <Dashboard style={{marginTop:50,borderRadius:30}}
-                data={data}
-                background={true}
-                card={card}
-                column={2}
-                rippleColor={'yellow'}
-            /></View>
+</Card></View><View style={{flexDirection:'row',marginLeft:7,marginTop:50}}>
+           <TouchableOpacity ><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='upload' type='font-awesome-5' size={40}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Upload Certificates</Card.Title></Card></TouchableOpacity>
+           <TouchableOpacity style={{color:'white'}}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='list' type='font-awesome-5' size={40}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>View Certificates</Card.Title></Card></TouchableOpacity></View>
+           <View style={{flexDirection:'row',marginLeft:7,marginTop:50}}>
+           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='hand-paper' type='font-awesome-5' size={45}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Raise Ticket</Card.Title></Card></TouchableOpacity>
+           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='trophy' type='font-awesome-5' size={40}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>View Activity Points</Card.Title></Card></TouchableOpacity></View>
+            </View>
        
     );
 }

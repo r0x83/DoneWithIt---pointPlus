@@ -68,7 +68,7 @@ textinput:{
   width:'82%',
   height:23,
   marginBottom:30,
-  color:'grey',
+  color:'black',
     paddingTop:4,
     marginLeft: 20,
   
@@ -79,7 +79,7 @@ button:{
   alignSelf:'stretch',
   alignItems:'center',
   paddding:20,
-  backgroundColor:'#59cbbd',
+  backgroundColor:'#3173de',
   marginTop:30,
   height:50,
 },btntext:{

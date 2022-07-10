@@ -1,59 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet ,Button,Platform} from 'react-native';
+import { Text, View, StyleSheet ,Button,Platform,TouchableOpacity} from 'react-native';
 import Dashboard from 'react-native-dashboard';
 import { FontAwesome } from 'react-native-vector-icons';
-import {Card} from 'react-native-elements';
-
-const Icon = ({ icon, item, background }) => (
-    <FontAwesome
-        name={icon}
-        size={30}
-        color={
-            item.iconColor || (!item.background || !background ? '#3498db' : '#fff')
-        }
-        style={item.styleIcon}
-    />
-);
-
-
-const data = [
-    {   
-        name: 'Assign Points',
-        background:'#3173de',
-        icon: (item, background) => Icon({ icon: 'award-simple', item, background }),
-        iconColor: 'white',
-        rippleColor: 'gold',
-        
-    },
-    {
-        name: 'Resolve Tickets',
-        background: '#3173de',
-        icon: (item, background) => Icon({ icon: 'check', item, background }),
-        styleIcon: { color: 'white' },
-        borderRadius:'50',
-    },
-    {
-        name: 'Student Performance Review',
-        background: '#3173de',
-        icon: (item, background) => Icon({ icon: 'star', item, background }),
-        styleIcon: { color: 'gold' },
-    
-    },
-    {
-        name: 'Sort and Filter Certificates',
-        background: '#3173de',
-        icon: (item, background) => Icon({ icon: 'filter', item, background }),
-        styleName: { color: 'white', fontWeight: 'bold' },
-       borderRadius:'3',
-    },
-   
-];
-
-    
+import {Card,Icon} from 'react-native-elements';
+ 
 
 const TeacherDashboardScreen =()=> {
-    const card = ({ name }) => console.log('Card: ' + name);
-   
+    
     return (
        
         <View style={styles.container}>
@@ -61,21 +14,31 @@ const TeacherDashboardScreen =()=> {
 
             <View style={{marginTop:30}}>
             <Card >
+ <View>
+  <Card.Title style={{marginLeft:-180}}>Welcome!First Name</Card.Title></View>
+  <View><Card.Image style={{height:70,width:70,marginLeft:280}}source={require('../assets/user.png')} />
+  </View>
+  
  
-  <Card.Title style={{marginLeft:-180}}>Welcome!First Name</Card.Title>
-  <Card.Image style={{height:70,width:70,marginLeft:280}}source={require('../assets/user.png')} />
-  
-  
-  
-</Card></View>
-            
-            <Dashboard style={{marginTop:50}}
-                data={data}
-                background={true}
-                card={card}
-                column={2}
-                rippleColor={'#3498db'}
-            /></View>
+</Card></View><View style={{flexDirection:'row',marginLeft:7,marginTop:50}}>
+           <TouchableOpacity ><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='award' type='font-awesome-5' size={40}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Assign Points</Card.Title></Card></TouchableOpacity>
+           <TouchableOpacity style={{color:'white'}}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='check' type='font-awesome-5' size={40}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Resolve Tickets</Card.Title></Card></TouchableOpacity></View>
+           <View style={{flexDirection:'row',marginLeft:7,marginTop:50}}>
+           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='star' type='font-awesome-5' size={45}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Student Performance Review</Card.Title></Card></TouchableOpacity>
+           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <Icon
+  name='filter' type='font-awesome-5' size={40}/>
+  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Sort and Filter Certificates</Card.Title></Card></TouchableOpacity></View>
+            </View>
        
     );
 }
