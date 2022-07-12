@@ -1,17 +1,20 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text,SafeAreaView,StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RegistrationScreen from './app/screens/RegistrationScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import StudentDashboard from './app/screens/StudentDashboard';
 import TeacherDashboardScreen from './app/screens/TeacherDashboardScreen';
-
+import EnterDetails from './app/screens/EnterDetails';
 import TeacherLogin from './app/screens/TeacherLogin';
 function HomeScreen({ navigation }) {
   return (
-    <View  style={{backgroundColor:'white',flex:1}}>
-        
+    <SafeAreaView  style={{backgroundColor:'white',flex:1}}>
+         <StatusBar
+        animated={true}
+        backgroundColor="grey"
+        />
       <Text style={{fontSize:36,marginTop:150,marginLeft:100,color:'#000080'}}>Point Plus+</Text>
       <View style={{flexDirection:'row',marginTop:300,marginLeft:50}}><Button style={{marginLeft:100}}
         title="Login as Teacher"
@@ -21,7 +24,7 @@ function HomeScreen({ navigation }) {
         title="Login as Student"
         onPress={() => navigation.navigate('Login')}
       /></View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -54,11 +57,27 @@ function App() {
             fontWeight: 'bold',
           },
         }}/>
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Login" component={LoginScreen}  options={{
+          
+          
+          borderRadius:30,
+        
+          headerStyle: {
+          
+            width:'50',
+            
+            
+          },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}/>
         <Stack.Screen name="TeacherLogin" component={TeacherLogin} />
         <Stack.Screen name="Register" component={RegistrationScreen} />
         <Stack.Screen name="TeacherDashboardScreen" component={TeacherDashboardScreen} />
         <Stack.Screen name="StudentDashboard" component={StudentDashboard} />
+        <Stack.Screen name="EnterDetails" component={EnterDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
