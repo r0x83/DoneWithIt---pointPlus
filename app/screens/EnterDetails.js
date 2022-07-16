@@ -4,8 +4,7 @@ import { Children, useState } from 'react';
 import { Dropdown } from 'react-native-element-dropdown';
 import React from 'react';
 import { Card, Icon } from 'react-native-elements';
-import DropDown from 'react-native-multi-level-selector';
-import PickerCascader  from 'react-native-picker-cascader';
+
 import {
     View,
     Text,
@@ -23,77 +22,20 @@ import {
 } from 'react-native';
 import { child } from 'fontawesome';
 
-
+const data = [
+  { label: 'National Initiatives Participation', value: '1' },
+  { label: 'Sports & Games Participation', value: '2' },
+  { label: 'Cultural Activities Participation', value: '3' },
+   [
+    {label: 'Customer Relations'},
+    {label: 'IT'},
+    {label: 'Human Resources'},
+    {label: 'Managerial'},
+  ],
+];
 
 const EnterDetails = () => {
-  const options = [
-    {
-      value: 'Department',
-      nested: [
-        {value: 'Customer Relations'},
-        {value: 'IT'},
-        {value: 'Human Resources'},
-        {value: 'Managerial'},
-      ],
-    },
-    {
-      value: 'Location',
-      nested: [
-        {
-          value: 'Bangalore',
-          nested: [
-            {
-              value: 'Whitefield',
-              nested: [
-                {
-                  value: 'ITPL',
-                },
-              ],
-            },
-            {
-              value: 'Jayanagar',
-            },
-            {
-              value: 'Majestic',
-            },
-          ],
-        },
-        {
-          value: 'New York',
-          nested: [
-            {
-              value: "Hell's Kitchen",
-            },
-            {
-              value: 'Harlem',
-            },
-          ],
-        },
-        {value: 'Birmingham'},
-      ],
-    },
-    {
-      value: 'Role',
-      nested: [
-        {
-          value: 'SDE 1',
-          nested: [
-            {
-              value: 'Trainee',
-            },
-            {
-              value: 'Associate',
-            },
-          ],
-        },
-        {value: 'SDE 2'},
-        {value: 'SDE 3'},
-      ],
-    },
-    {
-      value: 'Is Fresher',
-    },
-  ];
+  
   const [modalVisible, setModalVisible] = useState(false);
     const [mydate, setDate] = useState(new Date());
     const [displaymode, setMode] = useState('date');
@@ -139,25 +81,26 @@ const EnterDetails = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
+       
           setModalVisible(!modalVisible);
         }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
+            <View style={{flexDirection:'row',marginTop:50}}>
           <TouchableOpacity  ><Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
            <Icon
-  name='upload' type='font-awesome-5' size={40}/>
-  <Card.Title style={{marginTop:20,fontSize:18,color:'#4f4e4c'}}>Upload Certificates</Card.Title></Card></TouchableOpacity>
-           <TouchableOpacity style={{color:'white'}}><Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
+  name='camera' type='font-awesome-5' size={40}/>
+  </Card></TouchableOpacity>
+           <TouchableOpacity style={{color:'white',marginLeft:50}}><Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
            <Icon
-  name='list' type='font-awesome-5' size={40} iconStyle={{color:'blue'}}/>
-  <Card.Title style={{marginTop:20,fontSize:18,color:'#4f4e4c'}}>View Certificates</Card.Title></Card></TouchableOpacity>
+  name='file' type='font-awesome-5' size={38} iconStyle={{color:'blue'}}/>
+ </Card></TouchableOpacity></View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Close</Text>
             </Pressable>
           </View>
         </View>
@@ -167,7 +110,7 @@ const EnterDetails = () => {
         onPress={() => setModalVisible(true)}
       >
        <Icon
-  name='upload' type='font-awesome-5' size={40}/>
+  name='plus-circle' type='font-awesome-5' size={40}/>
       </Pressable>
       </Card></TouchableOpacity></View>
     
@@ -302,7 +245,8 @@ const styles = StyleSheet.create({
       marginTop: 22
     },
     modalView: {
-      marginTop: -250,
+      marginTop: -180,
+      
       backgroundColor: "white",
       borderRadius: 20,
       padding: 35,
@@ -321,13 +265,19 @@ const styles = StyleSheet.create({
     button: {
       borderRadius: 20,
       padding: 10,
-      elevation: 2
+      elevation: 1,
+      
     },
     buttonOpen: {
-      backgroundColor: "#F194FF",
+      backgroundColor: "silver",
+      width:100,
+      marginLeft:85,
+      marginTop:40
     },
     buttonClose: {
-      backgroundColor: "#2196F3",
+      backgroundColor: "blue",
+      marginTop:80,
+      width:100,
     },
     textStyle: {
       color: "white",

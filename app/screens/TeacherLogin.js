@@ -66,7 +66,7 @@ const TeacherLogin = ({navigation})=> {
       </TouchableOpacity> 
       <View style={{flexDirection:'row'}}>
       <Text style={{marginBottom: 30,marginTop:20}}>Dont have an account already? </Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+      <TouchableOpacity onPress={() => navigation.navigate('TeacherRegistrationScreen')}>
         <Text style={styles.signup_button}>Sign Up </Text>   
       </TouchableOpacity></View>
      

@@ -34,7 +34,7 @@ const StudentDashboard =({navigation})=> {
            <Icon
   name='hand-paper' type='font-awesome-5' size={45} iconStyle={{color:'#f7d497'}}/>
   <Card.Title style={{marginTop:20,fontSize:18,color:'#4f4e4c'}}>Raise Ticket</Card.Title></Card></TouchableOpacity>
-           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#e8e7e6'}}>
+           <TouchableOpacity onPress={() => navigation.navigate('ViewActivityPoints')}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#e8e7e6'}}>
            <Icon
   name='trophy' type='font-awesome-5' size={40} iconStyle={{color:'#d1b202'}}/>
   <Card.Title style={{marginTop:20,fontSize:18,color:'#4f4e4c'}}>View Activity Points</Card.Title></Card></TouchableOpacity></View>

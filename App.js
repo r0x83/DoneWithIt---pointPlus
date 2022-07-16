@@ -8,7 +8,10 @@ import StudentDashboard from './app/screens/StudentDashboard';
 import TeacherDashboardScreen from './app/screens/TeacherDashboardScreen';
 import EnterDetails from './app/screens/EnterDetails';
 import TeacherLogin from './app/screens/TeacherLogin';
-function HomeScreen({ navigation }) {
+import  TeacherRegistrationScreen from './app/screens/TeacherRegistrationScreen';
+import  ViewActivityPoints from './app/screens/ViewActivityPoints';
+import HomeScreen from './app/screens/HomeScreen';
+function HomeScreen1({ navigation }) {
   return (
     <SafeAreaView  style={{backgroundColor:'white',flex:1}}>
          <StatusBar
@@ -77,7 +80,9 @@ function App() {
         <Stack.Screen name="Register" component={RegistrationScreen} />
         <Stack.Screen name="TeacherDashboardScreen" component={TeacherDashboardScreen} />
         <Stack.Screen name="StudentDashboard" component={StudentDashboard} />
+        <Stack.Screen name="TeacherRegistrationScreen" component={TeacherRegistrationScreen} />
         <Stack.Screen name="EnterDetails" component={EnterDetails} />
+        <Stack.Screen name="ViewActivityPoints" component={ViewActivityPoints} />
       </Stack.Navigator>
     </NavigationContainer>
   );
