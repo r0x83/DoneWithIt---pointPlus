@@ -11,6 +11,10 @@ import TeacherLogin from './app/screens/TeacherLogin';
 import  TeacherRegistrationScreen from './app/screens/TeacherRegistrationScreen';
 import  ViewActivityPoints from './app/screens/ViewActivityPoints';
 import HomeScreen from './app/screens/HomeScreen';
+
+import ImageSelector from './app/screens/ImageSelector';
+import BarCodeScanner from './app/screens/BarCodeScanner';
+
 function HomeScreen1({ navigation }) {
   return (
     <SafeAreaView  style={{backgroundColor:'white',flex:1}}>
@@ -83,6 +87,8 @@ function App() {
         <Stack.Screen name="TeacherRegistrationScreen" component={TeacherRegistrationScreen} />
         <Stack.Screen name="EnterDetails" component={EnterDetails} />
         <Stack.Screen name="ViewActivityPoints" component={ViewActivityPoints} />
+        <Stack.Screen name="ImageSelector" component={ImageSelector}/>
+        <Stack.Screen name="BarCodeScanner" component={BarCodeScanner} />
       </Stack.Navigator>
     </NavigationContainer>
   );
