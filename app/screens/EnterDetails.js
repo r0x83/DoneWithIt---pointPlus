@@ -34,9 +34,9 @@ const data = [
   ],
 ];
 
-const EnterDetails = () => {
+const EnterDetails = ({navigation}) => {
   
-  const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     const [mydate, setDate] = useState(new Date());
     const [displaymode, setMode] = useState('date');
     const [isDisplayDate, setShow] = useState(false);
@@ -64,9 +64,24 @@ const EnterDetails = () => {
         }
         return null;
     };
-    console.log(mydate);
-    return (
 
+    const BarCodeScannerCall = () =>{
+      navigation.navigate('BarCodeScanner');
+    }
+
+    const ImageSelectorCall = () =>{
+      navigation.navigate('ImageSelector');
+    }
+    
+    const onPress = (screenNumber) => {   
+      setModalVisible(!modalVisible);
+      screenNumber == 0 ? BarCodeScannerCall() : ImageSelectorCall();  //screenNumber = 0 for Barcode, 1 for imageSelector
+    }
+
+
+    console.log(mydate);
+    
+    return (
         <SafeAreaView style={styles.container}>
           <ScrollView>
           <View style={styles.centeredView}>
@@ -81,25 +96,38 @@ const EnterDetails = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-       
           setModalVisible(!modalVisible);
         }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
+
             <View style={{flexDirection:'row',marginTop:50}}>
-          <TouchableOpacity  ><Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
-           <Icon
-  name='camera' type='font-awesome-5' size={40}/>
-  </Card></TouchableOpacity>
-           <TouchableOpacity style={{color:'white',marginLeft:50}}><Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
-           <Icon
-  name='file' type='font-awesome-5' size={38} iconStyle={{color:'blue'}}/>
- </Card></TouchableOpacity></View>
+
+                {/* onPress would disable modal and call barcode scanner ( which is passed as screen 0 ) */}
+                <TouchableOpacity 
+                  onPress={() => onPress(0)} >
+                  <Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
+                    <Icon 
+                      name='camera' type='font-awesome-5' size={40}/>
+                  </Card>
+                </TouchableOpacity>
+
+                {/* onPress would disable modal and call barcode scanner ( which is passed as screen 1 ) */}
+                <TouchableOpacity 
+                    onPress={() => onPress(1)}
+                    style={{color:'white',marginLeft:50}}>
+                  <Card containerStyle={{width:70,height:70,borderRadius:15,backgroundColor:'#e8e7e6'}}>
+                    <Icon
+                      name='file' type='font-awesome-5' size={38} iconStyle={{color:'blue'}}/>
+                </Card>
+                </TouchableOpacity>
+
+            </View>
+
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
+              onPress={() => setModalVisible(!modalVisible)} >
               <Text style={styles.textStyle}>Close</Text>
             </Pressable>
           </View>
