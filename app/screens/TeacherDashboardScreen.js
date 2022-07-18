@@ -21,23 +21,21 @@ const TeacherDashboardScreen =()=> {
   
  
 </Card></View><View style={{flexDirection:'row',marginLeft:7,marginTop:50}}>
-           <TouchableOpacity ><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <TouchableOpacity activeOpacity={0.96}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#20d2bb'}}>
            <Icon
   name='award' type='font-awesome-5' size={40}/>
   <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Assign Points</Card.Title></Card></TouchableOpacity>
-           <TouchableOpacity style={{color:'white'}}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <TouchableOpacity  activeOpacity={0.96} style={{color:'white'}}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#20d2bb'}}>
            <Icon
   name='check' type='font-awesome-5' size={40}/>
   <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Resolve Tickets</Card.Title></Card></TouchableOpacity></View>
-           <View style={{flexDirection:'row',marginLeft:7,marginTop:50}}>
-           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
+           <View style={{flexDirection:'row',marginLeft:100,marginTop:50}}>
+           <TouchableOpacity activeOpacity={0.96}><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#20d2bb'}}>
            <Icon
-  name='star' type='font-awesome-5' size={45}/>
+  name='star' type='font-awesome-5' size={45}  />
   <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Student Performance Review</Card.Title></Card></TouchableOpacity>
-           <TouchableOpacity><Card containerStyle={{width:170,height:170,borderRadius:15,backgroundColor:'#3173de'}}>
-           <Icon
-  name='filter' type='font-awesome-5' size={40}/>
-  <Card.Title style={{marginTop:20,fontSize:18,color:'white'}}>Sort and Filter Certificates</Card.Title></Card></TouchableOpacity></View>
+          
+</View>
             </View>
        
     );

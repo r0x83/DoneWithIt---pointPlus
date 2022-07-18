@@ -56,9 +56,9 @@ const HomeScreen = ({navigation}) => {
           source={item.image} />
             {
             item.key=='s1' && (
-             <TouchableOpacity style={{borderRadius:10,backgroundColor:'green',height:50,padding:10,width:150,marginTop:-70}}
-               onPress={() => navigation.navigate('Login')}>
-                 <Text>{"Get Started"}</Text>
+             <TouchableOpacity style={{borderRadius:10,backgroundColor:'#20d2bb',height:50,paddingLeft:24,paddingTop:12,width:170,marginTop:-150}}
+               onPress={() => navigation.navigate('StudentLogin')}>
+                 <Text style={{color:'white',fontWeight:'bold'}}>{"Login As Student"}</Text>
              </TouchableOpacity>
             )
         }
@@ -66,9 +66,10 @@ const HomeScreen = ({navigation}) => {
        
         {
             item.key=='s2' && (
-             <TouchableOpacity style={{borderRadius:10,backgroundColor:'green',height:50,padding:10,width:150}}>
-                <Text>{"Get Started"}</Text>
-             </TouchableOpacity>
+              <TouchableOpacity style={{borderRadius:10,backgroundColor:'#3395ff',height:50,paddingLeft:24,paddingTop:12,width:170,marginTop:-150}}
+              onPress={() => navigation.navigate('TeacherLogin')}>
+                <Text style={{color:'white',fontWeight:'bold'}}>{"Login As Teacher"}</Text>
+            </TouchableOpacity>
             )
         }
       </View>
@@ -111,6 +112,7 @@ const HomeScreen = ({navigation}) => {
           renderItem={RenderItem}
           onDone={onDone}
           showNextButton={false}
+          showDoneButton={false}
           onSkip={onSkip}
           onDas={OnDas}
           bottomButton={true}
@@ -134,8 +136,9 @@ const styles = StyleSheet.create({
   titleStyle: {
     padding: 10,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: 'bold',
+    
   },
   paragraphStyle: {
     padding: 20,
@@ -147,16 +150,16 @@ const styles = StyleSheet.create({
     height: 200,
   },
   introTextStyle: {
-    fontSize: 18,
+    fontSize: 24,
     color: 'white',
     textAlign: 'center',
     paddingVertical: 30,
   },
   introTitleStyle: {
-    fontSize: 25,
+    fontSize: 35,
     color: 'white',
     textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: -150,
     fontWeight: 'bold',
   },
   buttonCircle: {
@@ -172,24 +175,24 @@ const styles = StyleSheet.create({
 const slides = [
   {
     key: 's1',
-    text: 'Best Recharge offers',
-    title: 'Mobile Recharge',
+    
+    title: 'Point Plus+',
     image: {
       uri:
-        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_mobile_recharge.png',
+      'https://cdn-icons-png.flaticon.com/512/3068/3068421.png',
     },
-    backgroundColor: '#20d2bb',
+    backgroundColor: '#3395ff',
      
   },
   {
     key: 's2',
-    title: 'Flight Booking',
-    text: 'Upto 25% off on Domestic Flights',
+    title: 'Point Plus+',
+   
     image: {
       uri:
-        'https://raw.githubusercontent.com/AboutReact/sampleresource/master/intro_flight_ticket_booking.png',
+        'https://cdn-icons-png.flaticon.com/512/1995/1995539.png',
     },
-    backgroundColor: '#febe29',
+    backgroundColor: '#20d2bb'
   },
   
  

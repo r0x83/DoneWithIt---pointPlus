@@ -11,6 +11,7 @@ import TeacherLogin from './app/screens/TeacherLogin';
 import  TeacherRegistrationScreen from './app/screens/TeacherRegistrationScreen';
 import  ViewActivityPoints from './app/screens/ViewActivityPoints';
 import HomeScreen from './app/screens/HomeScreen';
+<<<<<<< HEAD
 
 import ImageSelector from './app/screens/ImageSelector';
 import BarCodeScanner from './app/screens/BarCodeScanner';
@@ -34,14 +35,10 @@ function HomeScreen1({ navigation }) {
     </SafeAreaView>
   );
 }
+=======
+import ViewCertificates from './app/screens/ViewCertificates';
+>>>>>>> a7583ef (updated)
 
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
-  );
-}
 
 const Stack = createNativeStackNavigator();
 
@@ -64,15 +61,15 @@ function App() {
             fontWeight: 'bold',
           },
         }}/>
-        <Stack.Screen name="Login" component={LoginScreen}  options={{
+        <Stack.Screen name="StudentLogin" component={LoginScreen}  options={{
           
           
-          borderRadius:30,
+        
         
           headerStyle: {
-          
+            borderRadius:30,
             width:'50',
-            
+            backgroundColor:'white'
             
           },
           headerTintColor: 'black',
@@ -80,15 +77,39 @@ function App() {
             fontWeight: 'bold',
           },
         }}/>
-        <Stack.Screen name="TeacherLogin" component={TeacherLogin} />
+        <Stack.Screen name="TeacherLogin" component={TeacherLogin}  options={{
+          
+          
+        
+        
+          headerStyle: {
+            borderRadius:30,
+            width:'50',
+            backgroundColor:'white'
+            
+          },}}/>
         <Stack.Screen name="Register" component={RegistrationScreen} />
         <Stack.Screen name="TeacherDashboardScreen" component={TeacherDashboardScreen} />
-        <Stack.Screen name="StudentDashboard" component={StudentDashboard} />
+        <Stack.Screen name="StudentDashboard" component={StudentDashboard}  options={{
+          
+          
+        
+        
+          headerStyle: {
+            borderRadius:30,
+            width:'50',
+            backgroundColor:'white'
+            
+          },}}/>
         <Stack.Screen name="TeacherRegistrationScreen" component={TeacherRegistrationScreen} />
         <Stack.Screen name="EnterDetails" component={EnterDetails} />
         <Stack.Screen name="ViewActivityPoints" component={ViewActivityPoints} />
+<<<<<<< HEAD
         <Stack.Screen name="ImageSelector" component={ImageSelector}/>
         <Stack.Screen name="BarCodeScanner" component={BarCodeScanner} />
+=======
+        <Stack.Screen name="ViewCertificates" component={ViewCertificates} />
+>>>>>>> a7583ef (updated)
       </Stack.Navigator>
     </NavigationContainer>
   );

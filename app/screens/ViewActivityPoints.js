@@ -18,7 +18,7 @@ const ViewActivityPoints=({navigation})=> {
        
         <View style={styles.container}>
         <View >
-        <Card containerStyle={{height:200,backgroundColor:'purple',marginTop:5,borderRadius:20}}>
+        <Card containerStyle={{height:200,backgroundColor:'#3395ff',marginTop:5,borderRadius:20}}>
         <View style={{marginTop:5,marginLeft:130}}>
         <Card.Image style={{height:90,width:90,marginLeft:-5}}source={require('../assets/graduated.png')} />
         <Text style={{marginLeft:15,marginTop:10}}>Name</Text>

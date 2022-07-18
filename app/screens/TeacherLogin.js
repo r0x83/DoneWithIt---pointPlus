@@ -139,7 +139,7 @@ const TeacherLogin = ({navigation})=> {
     alignItems: "center",
     justifyContent: "center",
     marginTop: 20,
-    backgroundColor: "#332FD0",
+    backgroundColor: "#20d2bb",
      borderWidth:3,
      borderColor:'#000000',
   },
