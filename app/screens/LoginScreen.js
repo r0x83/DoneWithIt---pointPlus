@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#332FD0",
     borderWidth: 3,
     borderColor: "#000000",
-
+    
   },
 
   loginText: {

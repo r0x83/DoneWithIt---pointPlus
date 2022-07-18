@@ -54,6 +54,7 @@ function ImageSelector({navigation}) {
     }
   }
 
+  
   return (
     <View style={styles.screen}>
 

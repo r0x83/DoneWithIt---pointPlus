@@ -3,6 +3,11 @@ import { Children, useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 import React from "react";
 import { Card, Icon } from "react-native-elements";
+import { StatusBar } from "expo-status-bar";
+
+
+import * as ImagePicker from "expo-image-picker";
+
 import {
   View,
   Text,
@@ -21,6 +26,7 @@ import {
   Image,
 } from "react-native";
 import { child } from "fontawesome";
+import { BarCodeScanner } from "expo-barcode-scanner";
 
 const data = [
   { label: "National Initiatives Participation", value: "1" },
@@ -34,11 +40,14 @@ const data = [
   ],
 ];
 
-const EnterDetails = ({ navigation }, {props}) => {
+const EnterDetails = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [mydate, setDate] = useState(new Date());
   const [displaymode, setMode] = useState("date");
   const [isDisplayDate, setShow] = useState(false);
+
+  const [pickedImagePath, setPickedImagePath] = useState("");
+
   const changeSelectedDate = (event, selectedDate) => {
     const currentDate = selectedDate || mydate;
     setDate(currentDate);
@@ -60,24 +69,62 @@ const EnterDetails = ({ navigation }, {props}) => {
     return null;
   };
 
-  const BarCodeScannerCall = () => {
-    navigation.navigate("BarCodeScanner");
-  };
-
-  const ImageSelectorCall = () => {
-    navigation.navigate("ImageSelector");
-  };
-
-  const onPress = (screenNumber) => {
+  const showImagePicker = async () => {
     setModalVisible(!modalVisible);
-    screenNumber == 0 ? BarCodeScannerCall() : ImageSelectorCall(); //screenNumber = 0 for Barcode, 1 for imageSelector
+    // Ask the user for the permission to access the media library
+    const permissionResult =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("You've refused to allow this appp to access your photos!");
+      return;
+    }
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+    });
+
+    // Explore the result
+    console.log(result);
+
+    if (!result.cancelled) {
+      setPickedImagePath(result.uri);
+      console.log(result.uri);
+    }
+  };
+
+  // This function is triggered when the "Open camera" button pressed
+  const openCamera = async () => {
+    setModalVisible(!modalVisible);
+    // Ask the user for the permission to access the camera
+    const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("You've refused to allow this appp to access your camera!");
+      return;
+    }
+
+    const result = await ImagePicker.launchCameraAsync({
+      allowsEditing: true,
+    });
+
+    // Explore the result
+    console.log(result);
+
+    if (!result.cancelled) {
+      setPickedImagePath(result.uri);
+      console.log(result.uri);
+    }
   };
 
   console.log(mydate);
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+      >
         <View style={styles.centeredView}>
           <TouchableOpacity>
             <Card
@@ -100,8 +147,8 @@ const EnterDetails = ({ navigation }, {props}) => {
                 <View style={styles.centeredView}>
                   <View style={styles.modalView}>
                     <View style={{ flexDirection: "row", marginTop: 50 }}>
-                      {/* onPress would disable modal and call barcode scanner ( which is passed as screen 0 ) */}
-                      <TouchableOpacity onPress={() => onPress(0)}>
+                      {/* onPress would disable modal and open camera */}
+                      <TouchableOpacity onPress={openCamera}>
                         <Card
                           containerStyle={{
                             width: 70,
@@ -114,9 +161,9 @@ const EnterDetails = ({ navigation }, {props}) => {
                         </Card>
                       </TouchableOpacity>
 
-                      {/* onPress would disable modal and call barcode scanner ( which is passed as screen 1 ) */}
+                      {/* onPress would disable modal and open image selector */}
                       <TouchableOpacity
-                        onPress={() => onPress(1)}
+                        onPress={showImagePicker}
                         style={{ color: "white", marginLeft: 50 }}
                       >
                         <Card
@@ -146,24 +193,49 @@ const EnterDetails = ({ navigation }, {props}) => {
                   </View>
                 </View>
               </Modal>
-              <Pressable
-                style={[styles.button, styles.buttonOpen]}
+
+              {/* Area for choosing image and displaying if image selected */}
+              {/* <Pressable
+                style={[styles.button, styles.buttonOpen, styles.imageContainer]}
                 onPress={() => setModalVisible(true)}
               >
-                {
-                  props && <Image
-                  source={{ uri: props.data + launchCameraResult.base64 }}
-                  style={{ width: 200, height: 200 }}
-                />
-                }
-                <Icon name="plus-circle" type="font-awesome-5" size={40} />
+                {pickedImagePath !== "" ? (
+                  <Image
+                    source={{ uri: pickedImagePath }}
+                    style={styles.image}
+                  />
+                ) : (
+                  <Icon name="plus-circle" type="font-awesome-5" size={40} />
+                )}
+              </Pressable> */}
 
-              </Pressable>
+              <View>
+                {pickedImagePath !== "" ? (
+                  <Image
+                    source={{ uri: pickedImagePath }}
+                    style={styles.image}
+                  />
+                ) : (
+                  <Pressable
+                    style={[styles.button, styles.buttonOpen]}
+                    onPress={() => setModalVisible(true)}
+                  >
+                    <Icon name="plus-circle" type="font-awesome-5" size={40} />
+                  </Pressable>
+                )}
+              </View>
             </Card>
           </TouchableOpacity>
         </View>
-
-        <Text style={{ fontWeight: "bold", marginTop: -20 }}>Name: </Text>
+        <View>
+          <Button
+            // style={{ marginTop: -35 }}
+            title="SCAN QR"
+            onPress={() => navigation.navigate(BarCodeScanner)}
+          />
+          <StatusBar style="auto" />
+        </View>
+        <Text style={{ fontWeight: "bold", marginTop: 20 }}>Name: </Text>
         <View
           style={{
             flexDirection: "column",
@@ -203,7 +275,7 @@ const EnterDetails = ({ navigation }, {props}) => {
         </View>
         <View style={{ flexDirection: "row" }}>
           <Text style={{ fontWeight: "bold", marginTop: 20 }}>Date: </Text>
-
+          
           <TouchableOpacity onPress={displayDatepicker}>
             <Icon
               name="calendar-alt"
@@ -212,14 +284,14 @@ const EnterDetails = ({ navigation }, {props}) => {
               iconStyle={{ marginTop: 20, marginLeft: 10 }}
             />
           </TouchableOpacity>
-          <Text style={{ marginTop: 20 }}>{String(mydate)}</Text>
+          <Text style={{ marginTop: 20, marginLeft:10 }}>{String(mydate)}</Text>
           {isDisplayDate && (
             <DateTimePicker
               testID="dateTimePicker"
               value={mydate}
               mode={displaymode}
               is24Hour={true}
-              display="default"
+              display="spinner"
               onChange={changeSelectedDate}
             />
           )}
@@ -270,6 +342,19 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     borderRadius: 15,
     borderColor: "#3173de",
+  },
+  image: {
+    width: 300,
+    height: 170,
+    borderRadius: 10,
+    // width: '100%',
+    // height:'100%',
+    justifyContent: "center",
+    resizeMode: "center",
+  },
+  imageContainer: {
+    padding: 0,
+    margin: 0,
   },
   textinput: {
     alignSelf: "stretch",
