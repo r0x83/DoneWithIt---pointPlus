@@ -5,7 +5,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Button } from "react-native-elements";
 import EnterDetails from "./EnterDetails";
 
-export default function barCodeScanner({navigation}){
+export default function BarcodeScanner({navigation}){
     const [hasPermission, setHasPermission] = React.useState(false);
     const [scanData, setScanData ] = React.useState();
 
@@ -47,10 +47,11 @@ export default function barCodeScanner({navigation}){
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        borderRadius:10,
         backgroundColor:'#fff',
         alignItems: 'center',
         flexDirection:'row',
-        justifyContent: 'space-evenly',
-        margin: 10,
+        justifyContent: 'space-around',
+        margin: 0,
     }
 })
