@@ -129,9 +129,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 20,
+    backgroundColor: "#3395ff",
+    borderWidth:3,
+    borderColor:'#000000',
     backgroundColor: "#332FD0",
     borderWidth: 3,
     borderColor: "#000000",
+
   },
 
   loginText: {
