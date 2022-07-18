@@ -10,7 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-community/datetimepicker": "6.1.2",
+    "@react-native-community/datetimepicker": "^6.1.2",
     "@react-native-community/hooks": "^2.8.1",
     "@react-native-community/progress-bar-android": "^1.0.4",
     "@react-navigation/drawer": "^6.4.3",
