@@ -28,7 +28,7 @@ const TeacherLogin = ({navigation})=> {
        
     
     
-       <View style={{marginTop:50}}>
+       <View style={{marginTop:-250}}>
     
       <View style={styles.inputView}>
         <TextInput
@@ -84,10 +84,10 @@ const TeacherLogin = ({navigation})=> {
   inputView: {
     backgroundColor: "#ffffff",
     borderRadius: 10,
-    width: "70%",
+    width:300,
     height: 45,
    
-    marginBottom: 20,
+   marginTop:20,
     borderWidth:3,
      borderColor:'#000000',
  
@@ -117,7 +117,7 @@ const TeacherLogin = ({navigation})=> {
 
   logo_button: {
       height: 50,
-    marginBottom: 250,
+    marginTop:-310,
     fontSize: 35,
     color:"#000080"
     
@@ -130,7 +130,7 @@ const TeacherLogin = ({navigation})=> {
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 100,
     backgroundColor: "#20d2bb",
      borderWidth:3,
      borderColor:'#000000',

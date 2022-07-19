@@ -107,7 +107,7 @@ function App() {
         <Stack.Screen name="ViewActivityPoints" component={ViewActivityPoints} />
         <Stack.Screen name="ImageSelector" component={ImageSelector}/>
         <Stack.Screen name="BarCodeScanner" component={BarCodeScanner} />
-        <Stack.Screen name="ViewCertificates" component={ViewCertificates} />
+       
         <Stack.Screen name="CertificateDetails" component={CertificateDetails} />
         <Stack.Screen name="StudentListView" component={StudentListView} />
       </Stack.Navigator>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React,{useState,useRef} from 'react';
  import UserAvatar from 'react-native-user-avatar';
-import { Alert, View, StyleSheet, SafeAreaView, FlatList, Text } from 'react-native';
+import { Alert, View, StyleSheet, SafeAreaView, FlatList, Text,TextInput } from 'react-native';
  
 export default function StudentListView({navigation}) {
  
-  const Languages  = [
+  const data  = [
     {
       id: 1,
-      name: 'Jim Halpert',
+      name: "Jim Halpert",
     },
     {
       id: 2,
@@ -46,12 +46,18 @@ export default function StudentListView({navigation}) {
       name: 'David Wallace',
     }
   ];
- 
+ const [dataFrom,setData]=useState(data);
   const getItem = (name) => {
  
     Alert.alert(name);
  
   }
+  const item=({item})=>{
+    return(
+    <View >
+    <Text style={{fontSize:34}}>{item.name}</Text>
+    </View>);
+  };
  
   const ItemRender = ({ name }) => (
     <View style={styleSheet.item}>
@@ -76,14 +82,22 @@ overflow:'hidden'
       />
     );
   }
- 
+ const searchName=(input)=>{
+   let data=dataFrom;
+   let searchdata=data.filter((item)=>{
+     return item.name.toLowerCase().includes(input.toLowerCase());
+ });setData(searchdata)};
   return (
     <SafeAreaView style={styleSheet.MainContainer}>
- 
+    <View style={{marginTop:50}}>
+     <TextInput placeholder="Search name" onChangeText={(input)=>{
+       searchName(input);}
+     } style={{fontSize:34}}/></View>
       <FlatList
-        data={Languages}
+        data={dataFrom}
         renderItem={({ item }) => <ItemRender name={item.name} />}
-        keyExtractor={item => item.id}
+        keyExtractor={(item,index) =>index.toString(),item.id}
+
         ItemSeparatorComponent={ItemDivider}
       />
 
@@ -98,7 +112,9 @@ const styleSheet = StyleSheet.create({
  
   MainContainer: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    
+  
   },
  
   
