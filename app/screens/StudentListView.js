@@ -1,49 +1,49 @@
 import React from 'react';
- 
+ import UserAvatar from 'react-native-user-avatar';
 import { Alert, View, StyleSheet, SafeAreaView, FlatList, Text } from 'react-native';
  
-export default function App() {
+export default function StudentListView({navigation}) {
  
   const Languages  = [
     {
       id: 1,
-      name: 'Hindi',
+      name: 'Jim Halpert',
     },
     {
       id: 2,
-      name: 'English',
+      name: 'Dwight Schrute',
     },
     {
       id: 3,
-      name: 'Spanish',
+      name: 'Michael Scott',
     },
     {
       id: 4,
-      name: 'Bengali',
+      name: 'Pam Beasley',
     },
     {
       id: 5,
-      name: 'Russian',
+      name: 'James Bond',
     },
     {
       id: 6,
-      name: 'Japanese',
+      name: 'Chandler Bing',
     },
     {
       id: 7,
-      name: 'French',
+      name: 'Andy Bernard',
     },
     {
       id: 8,
-      name: 'Italian',
+      name: 'John Peter',
     },
     {
       id: 9,
-      name: 'Indonesian',
+      name: 'John Wick',
     },
     {
       id: 10,
-      name: 'Dutch',
+      name: 'David Wallace',
     }
   ];
  
@@ -55,7 +55,13 @@ export default function App() {
  
   const ItemRender = ({ name }) => (
     <View style={styleSheet.item}>
-      <Text style={styleSheet.itemText} onPress={()=> getItem(name)}>{name}</Text>
+    <UserAvatar size={30}  name={name} style={{
+width: 50,
+height: 50,
+borderRadius: 25,
+overflow:'hidden'
+}} />
+      <Text style={styleSheet.itemText} onPress={() => navigation.navigate('ViewActivityPoints')} >{name}</Text>
     </View>
   );
  
@@ -99,13 +105,17 @@ const styleSheet = StyleSheet.create({
   item: {
     padding: 20,
     marginTop: 5,
+    
     fontSize: 15,
+    flexDirection:"row"
   },
   
  
   itemText: {
     fontSize: 24,
-    color: 'black'
+    color: 'black',
+    marginLeft:15,
+    marginTop:10
   }
  
 });

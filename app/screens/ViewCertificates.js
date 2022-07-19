@@ -33,7 +33,9 @@ export default class Users extends Component {
   cardClickEventListener = (item) => {
     Alert.alert(item.name);
   }
-
+  newPageEventListener=({navigation})=>{
+    navigation.navigate('CertificateDetails')
+  }
   tagClickEventListener = (tagName) => {
     Alert.alert(tagName);
   }
@@ -64,9 +66,9 @@ export default class Users extends Component {
           keyExtractor= {(item) => {
             return item.id;
           }}
-          renderItem={({item}) => {
+          renderItem={({item,navigation}) => {
             return (
-              <TouchableOpacity style={[styles.card, {borderColor:item.color}]} onPress={() => {this.cardClickEventListener(item)}}>
+              <TouchableOpacity style={[styles.card, {borderColor:item.color}]} onPress={() => {this.cardClickEventListener(item),this.props.navigation.navigate('CertificateDetails')}} >
                 <View style={styles.cardContent}>
                   <Image style={[styles.image, styles.imageContent]} source={{uri: item.icon}}/>
                   <Text style={styles.name}>{item.name}</Text>

@@ -10,11 +10,14 @@ import EnterDetails from './app/screens/EnterDetails';
 import TeacherLogin from './app/screens/TeacherLogin';
 import  TeacherRegistrationScreen from './app/screens/TeacherRegistrationScreen';
 import  ViewActivityPoints from './app/screens/ViewActivityPoints';
+import ViewCertificates from './app/screens/ViewCertificates';
+
 import HomeScreen from './app/screens/HomeScreen';
-<<<<<<< HEAD
 
 import ImageSelector from './app/screens/ImageSelector';
 import BarCodeScanner from './app/screens/BarCodeScanner';
+import CertificateDetails from './app/screens/CertificateDetails';
+import StudentListView from './app/screens/StudentListView';
 
 function HomeScreen1({ navigation }) {
   return (
@@ -35,9 +38,7 @@ function HomeScreen1({ navigation }) {
     </SafeAreaView>
   );
 }
-=======
-import ViewCertificates from './app/screens/ViewCertificates';
->>>>>>> a7583ef (updated)
+
 
 
 const Stack = createNativeStackNavigator();
@@ -104,12 +105,11 @@ function App() {
         <Stack.Screen name="TeacherRegistrationScreen" component={TeacherRegistrationScreen} />
         <Stack.Screen name="EnterDetails" component={EnterDetails} />
         <Stack.Screen name="ViewActivityPoints" component={ViewActivityPoints} />
-<<<<<<< HEAD
         <Stack.Screen name="ImageSelector" component={ImageSelector}/>
         <Stack.Screen name="BarCodeScanner" component={BarCodeScanner} />
-=======
         <Stack.Screen name="ViewCertificates" component={ViewCertificates} />
->>>>>>> a7583ef (updated)
+        <Stack.Screen name="CertificateDetails" component={CertificateDetails} />
+        <Stack.Screen name="StudentListView" component={StudentListView} />
       </Stack.Navigator>
     </NavigationContainer>
   );

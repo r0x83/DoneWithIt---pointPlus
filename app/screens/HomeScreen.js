@@ -1,11 +1,7 @@
-// React Native App Intro Slider using AppIntroSlider
-// https://aboutreact.com/react-native-app-intro-slider/
-// Simple Intro Slider
- 
-// import React in our code
+
 import React, {useState} from 'react';
  
-// import all the components we are going to use
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,10 +24,7 @@ const HomeScreen = ({navigation}) => {
   const onSkip = () => {
     setShowRealApp(true);
   };
-  const OnDas=()=>{
-    <Button style={{marginLeft:10}}
-    title="Login as Student"/>
-  }
+  
   const renderSkipButton = () => {
     return (
       <Button >Continue</Button>
@@ -51,9 +44,7 @@ const HomeScreen = ({navigation}) => {
         <Text style={styles.introTitleStyle}>
           {item.title}
         </Text>
-        <Image
-          style={styles.introImageStyle}
-          source={item.image} />
+       
             {
             item.key=='s1' && (
              <TouchableOpacity style={{borderRadius:10,backgroundColor:'#20d2bb',height:50,paddingLeft:24,paddingTop:12,width:170,marginTop:-150}}
@@ -114,7 +105,7 @@ const HomeScreen = ({navigation}) => {
           showNextButton={false}
           showDoneButton={false}
           onSkip={onSkip}
-          onDas={OnDas}
+          
           bottomButton={true}
           renderNextButton={_renderNextButton}
         />
@@ -157,15 +148,15 @@ const styles = StyleSheet.create({
   },
   introTitleStyle: {
     fontSize: 35,
-    color: 'white',
+    color: 'purple',
     textAlign: 'center',
-    marginBottom: -150,
+    marginBottom: 100,
     fontWeight: 'bold',
   },
   buttonCircle: {
     width: 40,
     height: 40,
-    backgroundColor: 'rgba(0, 0, 0, .2)',
+    backgroundColor:'red',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -181,7 +172,7 @@ const slides = [
       uri:
       'https://cdn-icons-png.flaticon.com/512/3068/3068421.png',
     },
-    backgroundColor: '#3395ff',
+    backgroundColor: 'white',
      
   },
   {
@@ -192,7 +183,7 @@ const slides = [
       uri:
         'https://cdn-icons-png.flaticon.com/512/1995/1995539.png',
     },
-    backgroundColor: '#20d2bb'
+    backgroundColor: 'white'
   },
   
  

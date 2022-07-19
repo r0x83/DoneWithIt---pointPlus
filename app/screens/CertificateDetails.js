@@ -4,7 +4,7 @@ import {Card, Button , Title ,Paragraph } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Unorderedlist from 'react-native-unordered-list';
 
-const CreateCard = () => {
+const CertificateDetails = () => {
     
     return(
         <View>
@@ -40,7 +40,7 @@ const CreateCard = () => {
     </View> 
     )
 }
-export default CreateCard;
+export default CertificateDetails;
 
 const Styles = StyleSheet.create({
     container :{

@@ -45,6 +45,8 @@
     "react-native-screens": "~3.11.1",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-svg": "^12.3.0",
+    "react-native-unordered-list": "^1.0.4",
+    "react-native-user-avatar": "^1.0.8",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "0.17.7",
     "react-navigation": "^4.4.4",

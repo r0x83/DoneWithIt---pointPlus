@@ -28,7 +28,7 @@ const TeacherLogin = ({navigation})=> {
        
     
     
-       
+       <View style={{marginTop:50}}>
     
       <View style={styles.inputView}>
         <TextInput
@@ -47,29 +47,20 @@ const TeacherLogin = ({navigation})=> {
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
-      </View>
+      </View></View>
  
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>                            Forgot Password?</Text>
-      </TouchableOpacity>
+      
         
       <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('TeacherDashboardScreen')}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
-       <TouchableOpacity>
-        <Text style={styles.logo_button}>--------------</Text>
-      </TouchableOpacity>
+      
 
-      <TouchableOpacity style={styles.sign_inBtn}>
-        <Text style={styles.loginText}>Sign in With Google</Text>
+      <TouchableOpacity style={styles.sign_inBtn} onPress={() => navigation.navigate('TeacherRegistrationScreen')}>
+        <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity> 
-      <View style={{flexDirection:'row'}}>
-      <Text style={{marginBottom: 30,marginTop:20}}>Dont have an account already? </Text>
-      <TouchableOpacity onPress={() => navigation.navigate('TeacherRegistrationScreen')}>
-        <Text style={styles.signup_button}>Sign Up </Text>   
-      </TouchableOpacity></View>
-     
+      
 
       
       
@@ -95,6 +86,7 @@ const TeacherLogin = ({navigation})=> {
     borderRadius: 10,
     width: "70%",
     height: 45,
+   
     marginBottom: 20,
     borderWidth:3,
      borderColor:'#000000',
@@ -125,7 +117,7 @@ const TeacherLogin = ({navigation})=> {
 
   logo_button: {
       height: 50,
-    marginBottom: 50,
+    marginBottom: 250,
     fontSize: 35,
     color:"#000080"
     
