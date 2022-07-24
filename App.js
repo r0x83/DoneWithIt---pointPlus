@@ -11,13 +11,14 @@ import TeacherLogin from './app/screens/TeacherLogin';
 import  TeacherRegistrationScreen from './app/screens/TeacherRegistrationScreen';
 import  ViewActivityPoints from './app/screens/ViewActivityPoints';
 import ViewCertificates from './app/screens/ViewCertificates';
-
+import ViewCertificatesTeacher from './app/screens/ViewCertificatesTeacher';
 import HomeScreen from './app/screens/HomeScreen';
 
 import ImageSelector from './app/screens/ImageSelector';
 import BarCodeScanner from './app/screens/BarCodeScanner';
 import CertificateDetails from './app/screens/CertificateDetails';
 import StudentListView from './app/screens/StudentListView';
+import CertificateDetailsTeacher from './app/screens/CertificateDetailsTeacher';
 
 function HomeScreen1({ navigation }) {
   return (
@@ -110,6 +111,9 @@ function App() {
        
         <Stack.Screen name="CertificateDetails" component={CertificateDetails} />
         <Stack.Screen name="StudentListView" component={StudentListView} />
+        <Stack.Screen name="ViewCertificates" component={ViewCertificates} />
+        <Stack.Screen name="CertificateDetailsTeacher" component={CertificateDetailsTeacher} />
+        <Stack.Screen name="ViewCertificatesTeacher" component={ViewCertificatesTeacher} />
       </Stack.Navigator>
     </NavigationContainer>
   );
