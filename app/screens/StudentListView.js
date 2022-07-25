@@ -1,7 +1,7 @@
 import React,{useState,useRef} from 'react';
  import UserAvatar from 'react-native-user-avatar';
 import { Alert, View, StyleSheet, SafeAreaView, FlatList, Text,TextInput } from 'react-native';
- 
+import {Card,Icon} from 'react-native-elements';
 export default function StudentListView({navigation}) {
  
   const data  = [
@@ -75,7 +75,9 @@ overflow:'hidden'
     return (
       <View
         style={{
-          height: 1,
+          marginTop:-10,
+          marginBottom:-10,
+          height:1,
           width: "100%",
           backgroundColor: "#607D8B",
         }}
@@ -86,17 +88,36 @@ overflow:'hidden'
    let data=dataFrom;
    let searchdata=data.filter((item)=>{
      return item.name.toLowerCase().includes(input.toLowerCase());
- });setData(searchdata)};
+ });setData(searchdata)
+ 
+};
+const searchNames=(input)=>{
+  let data=dataFrom;
+  let searchdata=data.filter((item)=>{
+    return item.name.toLowerCase().includes(input.toLowerCase());
+});setData(searchdata)
+
+};
+const  handleKeyPress = ({ nativeEvent: { key: keyValue } }) => {
+  console.log(keyValue);
+  if(keyValue === 'Backspace')
+  {
+    setData(data);
+  }
+};
   return (
     <SafeAreaView style={styleSheet.MainContainer}>
-    <View style={{marginTop:50}}>
+    <View style={{marginTop:1,marginLeft:10,borderColor:'black',borderWidth:1,width:390,flexDirection:'row',borderRadius:20,backgroundColor:'silver'}}>
+    <Icon
+  name='search' type='font-awesome-5' size={25} style={{marginLeft:10,marginTop:15}}/>
      <TextInput placeholder="Search name" onChangeText={(input)=>{
-       searchName(input);}
-     } style={{fontSize:34}}/></View>
+       searchName(input),searchNames(input);}
+     } style={{fontSize:20,width:350,padding:10,borderRadius:15,marginLeft:5}}
+     onKeyPress={handleKeyPress}/></View>
       <FlatList
         data={dataFrom}
         renderItem={({ item }) => <ItemRender name={item.name} />}
-        keyExtractor={(item,index) =>index.toString(),item.id}
+        keyExtractor={(item,index) =>{index.toString(),item}}
 
         ItemSeparatorComponent={ItemDivider}
       />
@@ -122,16 +143,17 @@ const styleSheet = StyleSheet.create({
     padding: 20,
     marginTop: 5,
     
-    fontSize: 15,
+    fontSize: 20,
     flexDirection:"row"
   },
   
  
   itemText: {
-    fontSize: 24,
+    fontSize: 20,
     color: 'black',
     marginLeft:15,
-    marginTop:10
+    marginTop:10,
+   
   }
  
 });
